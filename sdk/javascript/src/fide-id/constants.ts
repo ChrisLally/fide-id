@@ -1,67 +1,28 @@
 /**
  * Fide ID constants.
- *
- * These values are intended to be generated from the Fide vocabulary and
- * shorthand registry sources, but are currently maintained in-package while the
- * split is being completed.
  */
-export const FIDE_NAMESPACE_URL = "https://fide.work/spec/v1/" as const;
-export const FIDE_SPEC_VERSION = "1" as const;
-export const FIDE_SPEC_DATE = "2026-02-18" as const;
+import {
+  FIDE_ENTITY_TYPES,
+  FIDE_ENTITY_VOCABULARY,
+  type FideEntityTypeName,
+  type FideEntityTypeSpec,
+} from "@chris-test/fide-entity-vocabulary";
 
-export const FIDE_ENTITY_TYPE_MAP = {
-    Statement: "00",
-    Person: "10",
-    Organization: "11",
-    SoftwareAgent: "12",
-    NetworkResource: "20",
-    PlatformAccount: "21",
-    CryptographicAccount: "22",
-    CreativeWork: "30",
-    Concept: "31",
-    Place: "40",
-    Event: "41",
-    Action: "42",
-    PhysicalObject: "43",
-    TextLiteral: "a0",
-    IntegerLiteral: "a1",
-    DecimalLiteral: "a2",
-    BoolLiteral: "a3",
-    DateLiteral: "a4",
-    TimeLiteral: "a5",
-    DateTimeLiteral: "a6",
-    DurationLiteral: "a7",
-    URILiteral: "a8",
-    JSONLiteral: "a9",
-} as const;
+const ENTITY_TYPE_ENTRIES = Object.entries(FIDE_ENTITY_TYPES) as [FideEntityTypeName, FideEntityTypeSpec][];
 
-export const FIDE_CHAR_TO_ENTITY_TYPE: Record<string, keyof typeof FIDE_ENTITY_TYPE_MAP> = {
-    "00": "Statement",
-    "10": "Person",
-    "11": "Organization",
-    "12": "SoftwareAgent",
-    "20": "NetworkResource",
-    "21": "PlatformAccount",
-    "22": "CryptographicAccount",
-    "30": "CreativeWork",
-    "31": "Concept",
-    "40": "Place",
-    "41": "Event",
-    "42": "Action",
-    "43": "PhysicalObject",
-    "a0": "TextLiteral",
-    "a1": "IntegerLiteral",
-    "a2": "DecimalLiteral",
-    "a3": "BoolLiteral",
-    "a4": "DateLiteral",
-    "a5": "TimeLiteral",
-    "a6": "DateTimeLiteral",
-    "a7": "DurationLiteral",
-    "a8": "URILiteral",
-    "a9": "JSONLiteral",
-};
+export const FIDE_NAMESPACE_URL = FIDE_ENTITY_VOCABULARY.namespaceUrl;
+export const FIDE_SPEC_VERSION = FIDE_ENTITY_VOCABULARY.specVersion;
+export const FIDE_SPEC_DATE = FIDE_ENTITY_VOCABULARY.specDate;
 
-export const FIDE_ID_PREFIX = 'did:fide:0x' as const;
+export const FIDE_ENTITY_TYPE_MAP = Object.fromEntries(
+  ENTITY_TYPE_ENTRIES.map(([name, spec]) => [name, spec.code]),
+) as { [K in FideEntityTypeName]: (typeof FIDE_ENTITY_TYPES)[K]["code"] };
+
+export const FIDE_CHAR_TO_ENTITY_TYPE = Object.fromEntries(
+  ENTITY_TYPE_ENTRIES.map(([name, spec]) => [spec.code, name]),
+) as Record<FideEntityTypeSpec["code"], FideEntityTypeName>;
+
+export const FIDE_ID_PREFIX = "did:fide:0x" as const;
 export const FIDE_ID_HEX_LENGTH = 40;
 export const FIDE_ID_LENGTH = FIDE_ID_PREFIX.length + FIDE_ID_HEX_LENGTH;
 export const FIDE_ID_FINGERPRINT_LENGTH = 36;

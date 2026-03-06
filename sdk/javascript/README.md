@@ -17,3 +17,7 @@ JavaScript/TypeScript SDK for calculating, parsing, and validating `did:fide` id
   - `dangerouslySkipReferenceIdentifierPolicy`
 - `calculateFideId(...)` hashes the exact `referenceIdentifier` string it receives.
 - `normalizeReferenceIdentifier(...)` and predicate shorthand helpers are available separately when callers need them.
+
+## Dependencies
+
+- `@chris-test/fide-entity-vocabulary` provides the entity type registry used by this package.

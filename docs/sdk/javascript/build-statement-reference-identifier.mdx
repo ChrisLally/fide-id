@@ -1,0 +1,12 @@
+---
+title: "buildStatementReferenceIdentifier"
+description: "Build the canonical reference identifier string for a Statement.
+
+Format: `s|p|o` (subject, predicate, object) separated by ASCII `|`. No whitespace.
+Always 155 chars. Validated at runtime via assertFideId."
+full: true
+---
+
+import { SDKFunctionPageInteractive } from '@/components/sdk-layout/sdk-function-page-interactive';
+
+<SDKFunctionPageInteractive data={{"name":"buildStatementReferenceIdentifier","description":"Build the canonical reference identifier string for a Statement.\n\nFormat: `s|p|o` (subject, predicate, object) separated by ASCII `|`. No whitespace.\nAlways 155 chars. Validated at runtime via assertFideId.","section":"Fide Id","signatures":[{"description":"Build the canonical reference identifier string for a Statement.\n\nFormat: `s|p|o` (subject, predicate, object) separated by ASCII `|`. No whitespace.\nAlways 155 chars. Validated at runtime via assertFideId.","parameters":[{"name":"subjectFideId","type":"string","optional":false,"description":"Subject Fide ID.","example":"did:fide:0x10205fcbdc6d73bcfcd2c73eb4795c2f02f1d1c1"},{"name":"predicateFideId","type":"string","optional":false,"description":"Predicate Fide ID.","example":"did:fide:0x312047e49369039d57063d0535a246065fbf9c9e"},{"name":"objectFideId","type":"string","optional":false,"description":"Object Fide ID.","example":"did:fide:0x1020f200f70f531f0f9cce26e9f4bf0bfa5f15d6"}],"returnType":"StatementReferenceIdentifier","returnDescription":"Canonical statement reference identifier in `subject|predicate|object` format.","infoCallout":{"title":"Node Runtime Required","body":"This function requires a Node.js runtime and is disabled in the browser docs preview."},"referencedTypes":[{"name":"StatementReferenceIdentifier","description":"Statement reference identifier: pipe-delimited s|p|o (subject, predicate, object Fide IDs).\nAlways 155 chars (51 + 1 + 51 + 1 + 51). No whitespace.\nTypeScript cannot enforce exact length; this enforces format structure.","type":"`did:fide:0x${string}|did:fide:0x${string}|did:fide:0x${string}`"}]}],"constants":[],"referencedTypes":[{"name":"StatementReferenceIdentifier","description":"Statement reference identifier: pipe-delimited s|p|o (subject, predicate, object Fide IDs).\nAlways 155 chars (51 + 1 + 51 + 1 + 51). No whitespace.\nTypeScript cannot enforce exact length; this enforces format structure.","type":"`did:fide:0x${string}|did:fide:0x${string}|did:fide:0x${string}`"}],"packageName":"@chris-test/fide-id"}} />
