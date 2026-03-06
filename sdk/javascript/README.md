@@ -20,4 +20,4 @@ JavaScript/TypeScript SDK for calculating, parsing, and validating `did:fide` id
 
 ## Dependencies
 
-- `@chris-test/fide-entity-vocabulary` provides the entity type registry used by this package.
+- `@chris-test/fide-vocabulary` provides the entity type registry used by this package.

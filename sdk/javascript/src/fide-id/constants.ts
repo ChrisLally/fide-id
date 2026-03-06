@@ -3,16 +3,16 @@
  */
 import {
   FIDE_ENTITY_TYPES,
-  FIDE_ENTITY_VOCABULARY,
+  FIDE_VOCABULARY,
   type FideEntityTypeName,
   type FideEntityTypeSpec,
-} from "@chris-test/fide-entity-vocabulary";
+} from "@chris-test/fide-vocabulary";
 
 const ENTITY_TYPE_ENTRIES = Object.entries(FIDE_ENTITY_TYPES) as [FideEntityTypeName, FideEntityTypeSpec][];
 
-export const FIDE_NAMESPACE_URL = FIDE_ENTITY_VOCABULARY.namespaceUrl;
-export const FIDE_SPEC_VERSION = FIDE_ENTITY_VOCABULARY.specVersion;
-export const FIDE_SPEC_DATE = FIDE_ENTITY_VOCABULARY.specDate;
+export const FIDE_NAMESPACE_URL = FIDE_VOCABULARY.namespaceUrl;
+export const FIDE_SPEC_VERSION = FIDE_VOCABULARY.specVersion;
+export const FIDE_SPEC_DATE = FIDE_VOCABULARY.specDate;
 
 export const FIDE_ENTITY_TYPE_MAP = Object.fromEntries(
   ENTITY_TYPE_ENTRIES.map(([name, spec]) => [name, spec.code]),
